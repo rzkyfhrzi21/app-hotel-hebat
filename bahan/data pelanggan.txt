@@ -1,0 +1,35 @@
+Nama Pemesan 	: Suharsono
+Email 		: suharsono@gmail.com
+Nomor Handphone	: 08997785552
+Nama Tamu		: Wiwik Ningsih
+Check In		: 09 Mei 2022
+Check Out		: 12 Mei 2022
+Jumlah Kamar	: 2
+Room Tipe		: Duluxe
+
+Nama Pemesan 	: Dedi Irawan
+Email 		: irawandd@gmail.com
+Nomor Handphone	: 085499809909
+Nama Tamu		: Tri Agustiani
+Check In		: 14 Mei 2022
+Check Out		: 15 Mei 2022
+Jumlah Kamar	: 1
+Room Tipe		: Superior
+
+Nama Pemesan 	: Teguh Widodo
+Email 		: Twidodo@gmail.com
+Nomor Handphone	: 088854367765
+Nama Tamu		: Ermi Wulandari
+Check In		: 09 Mei 2022
+Check Out		: 16 Mei 2022
+Jumlah Kamar	: 1
+Room Tipe		: Family
+
+Nama Pemesan 	: Ahmad Al Fatih
+Email 		: alfatih@gmail.com
+Nomor Handphone	: 085788983244
+Nama Tamu		: Siti Azahra
+Check In		: 09 Mei 2022
+Check Out		: 10 Mei 2022
+Jumlah Kamar	: 1
+Room Tipe		: Exclusif
