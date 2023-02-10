@@ -222,14 +222,27 @@ $nama_admin = $_SESSION['nama'];
                                                             <label for="jumlah_kasur">Jumlah Kasur </label>
                                                             <input type="number" name="jumlah_kasur" class="form-control" id="jumlah_kasur" placeholder="" value="<?= $kamar['jumlah_kasur']; ?>">
                                                         </div>
+
+
+
+
+
+
+
+
+
+
+
                                                         <div class="form-group">
                                                             <label for="gambar_kamar">Gambar Kamar</label>
+
                                                             <div class="input-group">
                                                                 <div class="custom-file">
                                                                     <input type="file" name="gambar" class="custom-file-input" id="gambar_kamar">
                                                                     <label class="custom-file-label" for="gambar_kamar">Pilih Gambar</label>
                                                                 </div>
                                                             </div>
+                                                            <img src="../img/<?= $kamar['gambar_kamar']; ?>" width="150" class="mt-2" style="color: ">
                                                         </div>
                                                         <input type="hidden" name="id_kamar" value="<?= $kamar['id_kamar']; ?>">
                                                         <input type="hidden" name="gambar_kamarlama" value="../img/<?= $kamar['gambar_kamar']; ?>">

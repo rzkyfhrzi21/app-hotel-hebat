@@ -221,6 +221,7 @@ $nama_admin = $_SESSION['nama'];
                                                                     <input type="file" class="custom-file-input" id="gambar" name="gambar">
                                                                     <label class="custom-file-label" for="gambar">Pilih Gambar</label>
                                                                 </div>
+                                                                <img src="../img/<?= $kamar['gambar_kamar']; ?>" width="150" class="mt-2">
                                                             </div>
                                                         </div>
                                                     </div>

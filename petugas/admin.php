@@ -48,6 +48,8 @@ $nama_admin = $_SESSION['nama'];
                 </li>
             </ul>
 
+            <!-- Kamu adalah  -->
+
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -59,6 +61,8 @@ $nama_admin = $_SESSION['nama'];
             </ul>
         </nav>
         <!-- /.navbar -->
+
+        =>
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">

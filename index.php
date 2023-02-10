@@ -190,7 +190,6 @@ if (isset($_SESSION['level'])) {
             </div>
         </div>
     </footer>
-
     <!-- link that opens popup -->
 
     <!-- form itself end-->
