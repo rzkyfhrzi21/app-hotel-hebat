@@ -1,0 +1,11 @@
+Nama Fasilitas	: Kolam Renang
+Keterangan		: Kolam renang outdoor yang akan menampilkan pemandangan pantai yang indah nan eksotis
+
+Nama Fasilitas	: Restaurant
+Keterangan		: Nikmati hidangan berstandar hotel bintang 5, dengan Chef bersertifikat Internasional dengan menu-menu yang dapat membuat pengalaman menginap anda semakin berkesan
+
+Nama Fasilitas	: Convention Center
+Keterangan		: Acara anda akan terasa sangat mewah ketika menggunakan convention center kami, dengan ruangan yang luas dan nyaman bagi tamu undangan anda.
+
+Nama Fasilitas	: Kids Club
+Keterangan		: Area bermain untuk anak-anak yang aman dan luas, dengan berbagai permainan edukasi dan petugas yang menjaga anak-anak ketika bermain.

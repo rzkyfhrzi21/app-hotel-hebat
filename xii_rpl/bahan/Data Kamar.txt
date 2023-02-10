@@ -1,0 +1,15 @@
+Tipe Kamar		: Duluxe Room
+Fasilitas Kamar	: Televisi LED, Sofa , View Pantai, Kulkas
+Jumlah Kasur	: 1 Bed 
+
+Tipe Kamar		: Family Room
+Fasilitas Kamar	: Televisi LED, Sofa , View Pantai, Kulkas, Teras Terhubung Ke Kolam Renang
+Jumlah Kasur	: 3 Bed 
+
+Tipe Kamar		: Exclusive Room
+Fasilitas Kamar	: Televisi LED, Sofa , View Pantai, Kulkas, Teras Terhubung Ke Kolam Renang, Ruang Kerja
+Jumlah Kasur	: 1 Bed 
+
+Tipe Kamar		: Superior Room
+Fasilitas Kamar	: Televisi LED, Sofa , View Pantai, Kulkas, Teras Terhubung Ke Kolam Renang, Ruang Kerja, Dapur
+Jumlah Kasur	: 1 Bed 
