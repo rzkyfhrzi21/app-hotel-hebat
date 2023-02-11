@@ -41,12 +41,16 @@
                         <div class="col-xl-5 col-lg-6">
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
+
+                                    <!-- AWAL MENU -->
                                     <ul id="navigation">
                                         <li><a class="active" href="index.php">Home</a></li>
                                         <li><a href="kamar.php">Kamar</a></li>
                                         <li><a href="fasilitas.php">Fasilitas</a></li>
                                         <li><a href="login.php">Login</a></li>
                                     </ul>
+                                    <!-- AKHIR MENU -->
+
                                 </nav>
                             </div>
                         </div>
@@ -60,7 +64,10 @@
                         <div class="col-xl-5 col-lg-4 d-none d-lg-block">
                             <div class="book_room">
                                 <div class="book_btn d-none d-lg-block">
+
+                                    <!-- PANGGIL FORM PESAN KAMAR SAAT DI KLIK -->
                                     <a class="popup-with-form" href="#test-form">Pesan Kamar</a>
+
                                 </div>
                             </div>
                         </div>
@@ -134,7 +141,7 @@
     </div>
     <!-- about_area_end -->
 
-    <!-- footer start -->
+    <!-- AWAL FOOTER -->
     <footer class="footer">
         <div class="copy-right_text">
             <div class="container">
@@ -152,10 +159,10 @@
             </div>
         </div>
     </footer>
-    <!-- footer end -->
+    <!-- AKHIR FOOTER -->
 
 
-    <!-- form itself start -->
+    <!-- AWAL FORM PEMESANAN KAMAR -->
     <form id="test-form" class="white-popup-block mfp-hide" action="simpan.php" method="post">
         <div class="popup_box ">
             <div class="popup_inner">
@@ -186,6 +193,7 @@
                         <select class="form-select wide" name="tipe_kamar" id="default-select" class="" required>
                             <option data-display="Tipe Kamar"></option>
 
+                            <!-- BUAT PERULANGAN UNTUK TIPE KAMAR BERDASARKAN NAMA KAMAR DARI DATABASE -->
                             <?php
 
                             include 'koneksi.php';
@@ -198,6 +206,8 @@
                                 <option value="<?= $kamar['nama_kamar']; ?>"><?= $kamar['nama_kamar']; ?></option>
 
                             <?php } ?>
+                            <!-- AKHIR PERULANGAN TIPE KAMAR -->
+
                         </select>
                     </div>
                     <div class="col-xl-12">
@@ -207,7 +217,7 @@
             </div>
         </div>
     </form>
-    <!-- form itself end -->
+    <!-- AKHIR FORM PEMESANAN KAMAR -->
 
     <!-- JS here -->
     <script src="template1/js/vendor/modernizr-3.5.0.min.js"></script>

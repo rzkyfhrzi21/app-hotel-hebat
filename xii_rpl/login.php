@@ -1,12 +1,21 @@
 <?php
 
+// MULAI EKSEKUSI SEMUA SESSION PADA SERVER DAN SIMPAN DI BROWSER
 session_start();
 
+// CEK JIKA PENGGUNA MEMPUNYAI SESI level SAAT MEMBUKA HALAMAN INI
 if (isset($_SESSION['level'])) {
 
+  // CEK JIKA MEMPUNYAI SESI level == admin 
   if ($_SESSION['level'] == "admin") {
+
+    // JIKA PUNYA, REFRESH KE FILE ADMIN.PHP DI FOLDER PETUGAS
     header("location: petugas/admin.php");
-  } else if ($_SESSION['level'] == "resepsionis") {
+  }
+  // CEK JIKA MEMPUNYAI SESI level == resepsionis 
+  else if ($_SESSION['level'] == "resepsionis") {
+
+    // JIKA PUNYA, REFRESH KE FILE RESEPSIONIS.PHP DI FOLDER PETUGAS
     header("location: petugas/resepsionis.php");
   }
 }
@@ -38,12 +47,13 @@ if (isset($_SESSION['level'])) {
     <div class="login-logo">
       <a href="index.php"><b>Petugas</b> Hotel Hebat</a>
     </div>
-    <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">Masukkan username dan password dengan benar</p>
 
+        <!-- AWAL FORM LOGIN -->
         <form action="cek_login.php" method="post">
+
           <div class="input-group mb-3">
             <input type="username" name="username" class="form-control" placeholder="Username">
             <div class="input-group-append">
@@ -52,6 +62,7 @@ if (isset($_SESSION['level'])) {
               </div>
             </div>
           </div>
+
           <div class="input-group mb-3">
             <input type="password" name="password" class="form-control" placeholder="Password">
             <div class="input-group-append">
@@ -60,20 +71,20 @@ if (isset($_SESSION['level'])) {
               </div>
             </div>
           </div>
+
           <div class="row">
-            <!-- /.col -->
             <div class="col-xl-12">
               <button type="submit" name="login" class="btn btn-primary btn-block">Masuk</button>
               <a href="index.php" class="btn btn-outline-secondary btn-block">Kembali</a>
             </div>
-            <!-- /.col -->
           </div>
+
         </form>
+        <!-- AKHIR FORM LOGIN -->
+
       </div>
-      <!-- /.login-card-body -->
     </div>
   </div>
-  <!-- /.login-box -->
 
   <!-- jQuery -->
   <script src="template2/plugins/jquery/jquery.min.js"></script>
