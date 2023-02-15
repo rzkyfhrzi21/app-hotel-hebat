@@ -86,6 +86,7 @@
     </div>
     <!-- bradcam_area_end -->
 
+    <!-- features room start -->
     <div class="features_room">
         <div class="container">
             <div class="row">
@@ -102,7 +103,7 @@
             <!-- BUAT PERULANGAN UNTUK MENAMPILKAN DATA KAMAR DARI DATABASE -->
             <?php
 
-            include('koneksi.php');
+            include 'koneksi.php';
 
             $no = 1;
 
@@ -128,6 +129,7 @@
 
         </div>
     </div>
+    <!-- features room end -->
 
     <!-- AWAL FOOTER -->
     <footer class="footer">
