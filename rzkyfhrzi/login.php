@@ -2,54 +2,14 @@
 
 session_start();
 
-include 'koneksi.php';
-
-if (isset($_SESSION['level']) == "admin") {
-    header("location: petugas/admin.php");
-    exit();
-} else if (isset($_SESSION['level']) == "resepsionis") {
-    header("location: petugas/resepsionis.php");
-    exit();
-}
-
-
-if (isset($_POST['btn_login'])) {
-
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
-
-    $cek_akun = mysqli_query($koneksi, "SELECT * from tbl_petugas where username = '$username' and password = '$password'");
-    $row_akun = mysqli_num_rows($cek_akun);
-    $array_akun = mysqli_fetch_array($cek_akun);
-
-    $_SESSION['nama'] = $array_akun['nama_petugas'];
-    $_SESSION['level'] = $array_akun['level_petugas'];
-
-    if ($row_akun > 0) {
-
-        if ($_SESSION['level'] == 'admin') {
-            echo "<script>
-            alert('Anda berhasil login!');
-            location.replace('petugas/admin.php');
-            </script>";
-        } else if ($_SESSION['level'] == 'resepsionis') {
-            echo "<script>
-            alert('Anda berhasil login!');
-            location.replace('petugas/resepsionis.php');
-            </script>";
-        } else {
-            echo "<script>
-            alert('Anda gagal login!');
-            location.replace('login.php');
-            </script>";
-        }
-    } else {
-        echo "<script>
-        alert('Anda gagal login!');
-        location.replace('login.php');
-        </script>";
+if (@$_SESSION['level'] > 0) {
+    if ($_SESSION['level'] == 'admin') {
+        header('location: petugas/admin.php');
+    } else if ($_SESSION['level'] == 'resepsionis') {
+        header('location: petugas/resepsionis.php');
     }
 }
+
 
 ?>
 
@@ -60,7 +20,9 @@ if (isset($_POST['btn_login'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hotel Hebat | Login</title>
-    <link rel="shortcut icon" type="image/x-icon" href="bahan/logo.png">
+
+    <link rel="icon" href="bahan/Logo.png">
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -74,40 +36,44 @@ if (isset($_POST['btn_login'])) {
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="index.php"><b>Hotel</b> Hebat</a>
+            <a href="index.php"><b>Hotel Hebat</b></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Silakan masukkan username dan password anda dengan benar.</p>
+                <p class="login-box-msg">Masuk untuk ke halaman petugas</p>
 
-                <form action="" method="post">
+                <form action="functions/cek_login.php" method="post" autocomplete="off">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="username" placeholder="Username">
+                        <input type="text" name="username" class="form-control" placeholder="Username" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-user"></span>
+                                <span class="fas fa-users"></span>
                             </div>
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                    </div>
                     <div class="social-auth-links text-center mb-3">
-                        <p> </p>
-                        <button type="submit" name="btn_login" class="btn btn-xl btn-primary">Login</button>
+                        <button type="submit" name="login" class="btn btn-primary btn-block">Masuk</button>
+                    </div>
+
+                    <div class="social-auth-links text-center mb-3">
+                        <p>- atau -</p>
+                        <a href="index.php" class="btn btn-block btn-outline-secondary">
+                            Kembali
+                        </a>
                     </div>
                 </form>
-                <!-- /.social-auth-links -->
 
-                <p class="mb-1">
-                    <a href="index.php">Kembali..</a>
-                </p>
             </div>
             <!-- /.login-card-body -->
         </div>

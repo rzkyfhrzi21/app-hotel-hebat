@@ -1,25 +1,16 @@
-<?php
-
-session_start();
-
-if (isset($_SESSION['level'])) {
-    header("location: login.php");
-    exit();
-}
-
-?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Hotel Hebat | Rizky</title>
+    <title>Hotel Hebat</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="bahan/logo.png"> <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="bahan/Logo.png">
+    <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
     <link rel="stylesheet" href="template1/css/bootstrap.min.css">
@@ -51,10 +42,10 @@ if (isset($_SESSION['level'])) {
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.php">Home</a></li>
-                                        <li><a href="kamar.php">Kamar</a></li>
-                                        <li><a class="active" href="fasilitas.php">Fasilitas</a></li>
-                                        <li><a href="login.php">Login</a></li>
+                                        <li><a href="index.php">home</a></li>
+                                        <li><a href="kamar.php">kamar</a></li>
+                                        <li><a class="active" href="fasilitas.php">fasilitas</a></li>
+                                        <li><a href="login.php">login</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -93,24 +84,20 @@ if (isset($_SESSION['level'])) {
     <!-- about_area_start -->
     <div class="about_area">
         <div class="container">
+            <?php
 
-            <div class="row">
+            include 'functions/koneksi.php';
 
-                <?php
+            $sql_fasilitas = mysqli_query($koneksi, "SELECT * from fasilitas");
 
-                include 'koneksi.php';
+            while ($fasilitas = mysqli_fetch_array($sql_fasilitas)) :
 
-                $sql_fasilitas = mysqli_query($koneksi, "SELECT * from tbl_fasilitas");
-
-                while ($fasilitas = mysqli_fetch_array($sql_fasilitas)) :
-
-                ?>
+            ?>
+                <div class="row">
                     <div class="col-xl-5 col-lg-5">
                         <div class="about_info">
                             <div class="section_title mb-20px">
                                 <span>Fasilitas</span>
-
-
                                 <h3><?= $fasilitas['nama_fasilitas']; ?></h3>
                             </div>
                             <p><?= $fasilitas['ket_fasilitas']; ?></p>
@@ -118,13 +105,13 @@ if (isset($_SESSION['level'])) {
                     </div>
                     <div class="col-xl-7 col-lg-7">
                         <div class="about_thumb d-flex">
-                            <div class="img_1">
-                                <img src="img/<?= $fasilitas['gambar_fasilitas']; ?>" alt="">
+                            <div class="img">
+                                <img src="img/fasilitas/<?= $fasilitas['gambar_fasilitas']; ?>">
                             </div>
                         </div>
                     </div>
-                <?php endwhile ?>
-            </div>
+                </div>
+            <?php endwhile ?>
         </div>
     </div>
     <!-- about_area_end -->
@@ -140,7 +127,7 @@ if (isset($_SESSION['level'])) {
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;<script>
                                 document.write(new Date().getFullYear());
-                            </script> SMK Swadhipa 2 Natar | Rekayasa Perangkat Lunak <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#">Rizky Fahrezi</a>
+                            </script> SMK Swadhipa 2 Natar | Rekayasa Perangkat Lunak <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://linktr.ee/rzkyfhrzi21" target="_blank">Rizky Fahrezi</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                     <div class="col-xl-4 col-md-5 col-lg-3">
@@ -149,11 +136,10 @@ if (isset($_SESSION['level'])) {
             </div>
         </div>
     </footer>
-
-    <!-- link that opens popup -->
+    <!-- footer_end -->
 
     <!-- form itself end-->
-    <form action="pesan_kamar.php" method="post" id="test-form" class="white-popup-block mfp-hide">
+    <form action="functions/pesan_kamar.php" method="POST" id="test-form" class="white-popup-block mfp-hide" autocomplete="off">
         <div class="popup_box ">
             <div class="popup_inner">
                 <h3>Pesan Kamar</h3>
@@ -172,26 +158,25 @@ if (isset($_SESSION['level'])) {
                             <input type="text" class="form-control" name="nama_tamu" placeholder="Nama Tamu" required>
                         </div>
                         <div class="col-xl-6">
-                            <input id="datepicker" name="check_in" placeholder="Tanggal Check In" required>
+                            <input id="datepicker" name="check_in" placeholder="Tanggal Check In">
                         </div>
-                        <div class=" col-xl-6">
-                            <input id="datepicker2" name="check_out" placeholder="Tanggal Check Out" required>
+                        <div class="col-xl-6">
+                            <input id="datepicker2" name="check_out" placeholder="Tanggal Check Out">
                         </div>
-                        <div class="col-xl-12">
-                            <select class="form-select wide" name="tipe_kamar" id="default-select" class="" required>
-                                <option data-display="Tipe Kamar"></option>
 
+                        <div class="col-xl-12">
+                            <select class="form-select wide" id="default-select" name="tipe_kamar">
+                                <option data-display="Tipe Kamar"></option>
                                 <?php
 
-                                include 'koneksi.php';
+                                include 'functions/koneksi.php';
 
-                                $sql_kamar = mysqli_query($koneksi, "SELECT * from tbl_kamar");
+                                $sql_kamar = mysqli_query($koneksi, "SELECT * from kamar");
 
                                 while ($kamar = mysqli_fetch_array($sql_kamar)) :
 
                                 ?>
                                     <option value="<?= $kamar['nama_kamar']; ?>"><?= $kamar['nama_kamar']; ?></option>
-
                                 <?php endwhile ?>
                             </select>
                         </div>
@@ -199,7 +184,7 @@ if (isset($_SESSION['level'])) {
                             <input type="number" class="form-control" name="jumlah_kamar" placeholder="Jumlah Kamar" required>
                         </div>
                         <div class="col-xl-12">
-                            <button type="submit" name="btn_pesankamar" class="boxed-btn3">Pesan Kamar</button>
+                            <button type="submit" name="pesan_kamar" class="boxed-btn3">Pesan Kamar</button>
                         </div>
                     </div>
                 </form>

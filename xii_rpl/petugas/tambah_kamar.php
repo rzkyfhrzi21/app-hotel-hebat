@@ -1,18 +1,3 @@
-<?php
-
-session_start();
-
-if ($_SESSION['level'] !== 'admin') {
-  echo "<script>
-          alert('Maaf, Anda harus login sebagai admin terlebih dahulu!');
-          location.replace('../login.php');
-        </script>";
-}
-
-$nama_admin = $_SESSION['nama'];
-
-?>
-
 <!DOCTYPE html>
 <html>
 

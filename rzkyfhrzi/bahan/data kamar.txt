@@ -7,9 +7,9 @@ Fasilitas Kamar	: Televisi LED, Sofa , View Pantai, Kulkas, Teras Terhubung Ke K
 Jumlah Kasur	: 3 Bed 
 
 Tipe Kamar		: Exclusive Room
-Fasilitas Kamar	: Televisi LED, Sofa , View Pantai, Kulkas, Teras Terhubung Ke Kolam Renang, Ruang Meeting
+Fasilitas Kamar	: Televisi LED, Sofa , View Pantai, Kulkas, Teras Terhubung Ke Kolam Renang, Ruang Kerja
 Jumlah Kasur	: 1 Bed 
 
 Tipe Kamar		: Superior Room
-Fasilitas Kamar	: Televisi LED, Sofa , View Pantai, Kulkas, Teras Terhubung Ke Kolam Renang, Ruang Meeting, Dapur
+Fasilitas Kamar	: Televisi LED, Sofa , View Pantai, Kulkas, Teras Terhubung Ke Kolam Renang, Ruang Kerja, Dapur
 Jumlah Kasur	: 1 Bed 

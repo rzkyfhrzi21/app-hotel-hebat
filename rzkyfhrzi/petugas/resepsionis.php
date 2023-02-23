@@ -1,14 +1,21 @@
 <?php
-session_start();
 
-if (!isset($_SESSION['level']) == 'resepsionis') {
-    echo "<script>
-    alert('Maaf, Anda harus login sebagai Resepsionis terlebih dahulu!');
-    location.replace('../login.php');
-    </script>";
+session_start();
+date_default_timezone_set('Asia/Jakarta');
+
+$sesi_nama  = $_SESSION['nama'];
+$sesi_level = $_SESSION['level'];
+
+if ($_SESSION['level'] !== 'resepsionis') {
+    header('location: ../login.php');
 }
 
-$nama_resepsionis = $_SESSION['nama'];
+if (isset($_GET['page'])) {
+    $page   = $_GET['page'];
+} else {
+    $page   = 'home';
+}
+$pukul  = date('h:i A');
 
 ?>
 
@@ -20,7 +27,7 @@ $nama_resepsionis = $_SESSION['nama'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hotel Hebat | Resepsionis</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="../bahan/logo.png">
+    <link rel="icon" href="../bahan/Logo.png">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -28,6 +35,10 @@ $nama_resepsionis = $_SESSION['nama'];
     <link rel="stylesheet" href="../template2/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../template2/dist/css/adminlte.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../template2/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../template2/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../template2/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -44,8 +55,9 @@ $nama_resepsionis = $_SESSION['nama'];
                     <a href="resepsionis.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../logout.php" class="nav-link">Logout</a>
+                    <a href="../functions/logout.php" class="nav-link">Logout</a>
                 </li>
+
             </ul>
 
             <!-- Right navbar links -->
@@ -55,7 +67,11 @@ $nama_resepsionis = $_SESSION['nama'];
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link">
+                        <h5>Pukul <?= $pukul; ?></h5>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -63,7 +79,7 @@ $nama_resepsionis = $_SESSION['nama'];
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="resepsionis.php" class="brand-link">
+            <a href="../index.php" class="brand-link">
                 <img src="../template2/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Resepsionis</span>
             </a>
@@ -76,7 +92,7 @@ $nama_resepsionis = $_SESSION['nama'];
                         <img src="../template2/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?= $nama_resepsionis; ?></a>
+                        <a href="#" class="d-block"><?= $sesi_nama; ?></a>
                     </div>
                 </div>
 
@@ -98,22 +114,21 @@ $nama_resepsionis = $_SESSION['nama'];
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="resepsionis_reservasi.php" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="?page=reservasi" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     Reservasi
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../logout.php" class="nav-link">
+                            <a href="../functions/logout.php" class="nav-link">
                                 <i class="nav-icon fas fa-power-off"></i>
                                 <p>
                                     Logout
                                 </p>
                             </a>
                         </li>
-
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -128,7 +143,15 @@ $nama_resepsionis = $_SESSION['nama'];
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Halaman Resepsionis</h1>
+                            <h1>Resepsionis Hotel Hebat</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item">
+                                    <p class="text-primary">Resepsionis</p>
+                                </li>
+                                <li class="breadcrumb-item active" style="text-transform: capitalize;"><?= $page; ?></li>
+                            </ol>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
@@ -136,15 +159,20 @@ $nama_resepsionis = $_SESSION['nama'];
 
             <!-- Main content -->
             <section class="content">
+                <?php
 
-                <!-- Default box -->
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Selamat datang Resepsionis Hotel Hebat 😁</h3>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
+                if (@$_GET['page']) {
+                    switch (@$_GET['page']) {
+                        case 'reservasi':
+                            include 'resepsionis/reservasi.php';
+                            break;
+                    }
+                } else {
+                    include 'resepsionis/home.php';
+                }
+                ?>
+
+
 
             </section>
             <!-- /.content -->
@@ -153,9 +181,9 @@ $nama_resepsionis = $_SESSION['nama'];
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
-                <b>Version</b> 1.0
+                <b>UKK RPL 2023</b>
             </div>
-            <strong>Copyright &copy; 2023 <a href="#">Hotel Hebat</a>.</strong> by Rizky Fahrezi.
+            <strong>Copyright &copy; 2023 <a href="https://linktr.ee/rzkyfhrzi21" target="_blank">Rizky Fahrezi</a>.</strong> XII RPL
         </footer>
     </div>
     <!-- ./wrapper -->
@@ -166,6 +194,39 @@ $nama_resepsionis = $_SESSION['nama'];
     <script src="../template2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../template2/dist/js/adminlte.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="../template2/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../template2/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../template2/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../template2/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="../template2/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../template2/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="../template2/plugins/jszip/jszip.min.js"></script>
+    <script src="../template2/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="../template2/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="../template2/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="../template2/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="../template2/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
 </body>
 
 </html>
