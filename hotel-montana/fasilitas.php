@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="bahan/logo.png">
+    <link rel="shortcut icon" type="image/x-icon" href="bahan/Logo.png">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -42,17 +42,17 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.php">Home</a></li>
-                                        <li><a href="kamar.php">Kamar</a></li>
-                                        <li><a class="active" href="fasilitas.php">Fasilitas</a></li>
-                                        <li><a href="login.php">Login</a></li>
+                                        <li><a href="index.php">home</a></li>
+                                        <li><a href="kamar.php">kamar</a></li>
+                                        <li><a class="active" href="fasilitas.php">fasilitas</a></li>
+                                        <li><a href="login.php">login</a></li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.php">
+                                <a href="index.html">
                                     <img src="bahan/logo.png" alt="">
                                 </a>
                             </div>
@@ -60,10 +60,7 @@
                         <div class="col-xl-5 col-lg-4 d-none d-lg-block">
                             <div class="book_room">
                                 <div class="book_btn d-none d-lg-block">
-
-                                    <!-- PANGGIL FORM PESAN KAMAR SAAT DI KLIK -->
                                     <a class="popup-with-form" href="#test-form">Pesan Kamar</a>
-
                                 </div>
                             </div>
                         </div>
@@ -80,27 +77,20 @@
     <!-- bradcam_area_start -->
     <div class="bradcam_area breadcam_bg">
         <h3>Hotel Hebat</h3>
-        <H3>Fasilitas</H3>
+        <h3>Fasilitas</h3>
     </div>
     <!-- bradcam_area_end -->
 
     <!-- about_area_start -->
     <div class="about_area">
         <div class="container">
-
-            <!-- BUAT PERULANGAN UNTUK MENAMPILKAN DATA KAMAR DARI DATABASE -->
             <?php
 
-            // PANGGIL FILE KONEKSI.PHP
-            include 'koneksi.php';
+            include 'functions/koneksi.php';
 
-            $no = 1;
+            $sql_fasilitas = mysqli_query($koneksi, "SELECT * from fasilitas");
 
-            // QUERY UNTUK MENGAMBILKAN SEMUA DATA FASILITAS DARI TABEL FASILITAS DI DATABASE
-            $query = mysqli_query($koneksi, "SELECT * FROM fasilitas");
-
-            // LAKUKAN PERULANGAN
-            while ($row = mysqli_fetch_array($query)) {
+            while ($fasilitas = mysqli_fetch_array($sql_fasilitas)) :
 
             ?>
                 <div class="row">
@@ -108,27 +98,25 @@
                         <div class="about_info">
                             <div class="section_title mb-20px">
                                 <span>Fasilitas</span>
-                                <h3> <?php echo $row['nama_fasilitas'] ?> </h3>
+                                <h3><?= $fasilitas['nama_fasilitas']; ?></h3>
                             </div>
-                            <p> <?php echo $row['ket_fasilitas'] ?> </p>
+                            <p><?= $fasilitas['ket_fasilitas']; ?></p>
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-7">
                         <div class="about_thumb d-flex">
-                            <div class="img_1">
-                                <img src="img/<?php echo $row["gambar_fasilitas"]; ?>" alt="">
+                            <div class="img">
+                                <img src="img/fasilitas/<?= $fasilitas['gambar_fasilitas']; ?>">
                             </div>
                         </div>
                     </div>
                 </div>
-            <?php } ?>
-            <!-- AKHIR PERULANGAN DATA FASILITAS -->
-
+            <?php endwhile ?>
         </div>
     </div>
     <!-- about_area_end -->
 
-    <!-- AWAL FOOTER -->
+    <!-- footer -->
     <footer class="footer">
         <div class="copy-right_text">
             <div class="container">
@@ -139,72 +127,71 @@
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;<script>
                                 document.write(new Date().getFullYear());
-                            </script> SMK Swadhipa 2 Natar | Rekayasa Perangkat Lunak <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.instagram.com/class.rplinvinicible/" target="_blank">XII RPL</a>
+                            </script> SMK Swadhipa 2 Natar | Rekayasa Perangkat Lunak <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://linktr.ee/rzkyfhrzi21" target="_blank">Rizky Fahrezi</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="col-xl-4 col-md-5 col-lg-3">
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- AKHIR FOOTER -->
+    <!-- footer_end -->
 
-
-    <!-- AWAL FORM PEMESANAN KAMAR -->
-    <form id="test-form" class="white-popup-block mfp-hide" action="simpan.php" method="post">
+    <!-- form itself end-->
+    <form action="functions/pesan_kamar.php" method="POST" id="test-form" class="white-popup-block mfp-hide" autocomplete="off">
         <div class="popup_box ">
             <div class="popup_inner">
                 <h3>Pesan Kamar</h3>
-                <div class="row">
-                    <div class="form-group col-xl-12">
-                        <input type="text" class="form-control" name="nama_pemesan" autocomplete="off" placeholder="Masukkkan Nama Pemesan" required>
-                    </div>
-                    <div class="form-group col-xl-12">
-                        <input type="phone_num" class="form-control" name="no_hp" autocomplete="off" placeholder="Masukkkan No HP" required>
-                    </div>
-                    <div class="form-group col-xl-12">
-                        <input type="email" class="form-control" name="email" autocomplete="off" placeholder="Masukkkan Email" required>
-                    </div>
-                    <div class="form-group col-xl-12">
-                        <input type="text" class="form-control" name="nama_tamu" autocomplete="off" placeholder="Masukkan Nama Tamu" required>
-                    </div>
-                    <div class="col-xl-6">
-                        <input id="datepicker" name="check_in" autocomplete="off" placeholder="Tanggal Check In" required>
-                    </div>
-                    <div class="col-xl-6">
-                        <input id="datepicker2" name="check_out" autocomplete="off" placeholder="Tanggal Check Out" required>
-                    </div>
-                    <div class="form-group col-xl-12">
-                        <input type="number" class="form-control" autocomplete="off" name="jumlah_kamar" placeholder="Masukkkan Jumlah Kamar" required>
-                    </div>
-                    <div class="col-xl-12">
-                        <select class="form-select wide" name="tipe_kamar" id="default-select" class="" required>
-                            <option data-display="Tipe Kamar"></option>
+                <form>
+                    <div class="row">
+                        <div class="form-group col-xl-12">
+                            <input type="text" class="form-control" name="nama_pemesan" placeholder="Nama Pemesan" required>
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <input type="number" class="form-control" name="no_hp" placeholder="No Handphone" required>
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <input type="text" class="form-control" name="nama_tamu" placeholder="Nama Tamu" required>
+                        </div>
+                        <div class="col-xl-6">
+                            <input id="datepicker" name="check_in" placeholder="Tanggal Check In">
+                        </div>
+                        <div class="col-xl-6">
+                            <input id="datepicker2" name="check_out" placeholder="Tanggal Check Out">
+                        </div>
 
-                            <!-- BUAT PERULANGAN UNTUK TIPE KAMAR BERDASARKAN NAMA KAMAR DARI DATABASE -->
-                            <?php
+                        <div class="col-xl-12">
+                            <select class="form-select wide" id="default-select" name="tipe_kamar">
+                                <option data-display="Tipe Kamar"></option>
+                                <?php
 
-                            include 'koneksi.php';
+                                include 'functions/koneksi.php';
 
-                            $sql_kamar = mysqli_query($koneksi, "SELECT * from kamar");
+                                $sql_kamar = mysqli_query($koneksi, "SELECT * from kamar");
 
-                            while ($kamar = mysqli_fetch_array($sql_kamar)) {
+                                while ($kamar = mysqli_fetch_array($sql_kamar)) :
 
-                            ?>
-                                <option value="<?= $kamar['nama_kamar']; ?>"><?= $kamar['nama_kamar']; ?></option>
-
-                            <?php } ?>
-                            <!-- AKHIR PERULANGAN TIPE KAMAR -->
-
-                        </select>
+                                ?>
+                                    <option value="<?= $kamar['nama_kamar']; ?>"><?= $kamar['nama_kamar']; ?></option>
+                                <?php endwhile ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <input type="number" class="form-control" name="jumlah_kamar" placeholder="Jumlah Kamar" required>
+                        </div>
+                        <div class="col-xl-12">
+                            <button type="submit" name="pesan_kamar" class="boxed-btn3">Pesan Kamar</button>
+                        </div>
                     </div>
-                    <div class="col-xl-12">
-                        <button type="submit" class="boxed-btn3">Pesan Kamar</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </form>
-    <!-- AKHIR FORM PEMESANAN KAMAR -->
+    <!-- form itself end -->
 
 
     <!-- JS here -->

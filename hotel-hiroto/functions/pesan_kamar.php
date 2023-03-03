@@ -19,6 +19,8 @@ if (isset($_POST['pesan_kamar'])) {
         echo "<script>
                 alert('Kamar berhasil dipesan!');
                 location.replace('../kamar.php');
+                window.open('../invoice.php');
+                
             </script>";
     } else {
         echo "<script>

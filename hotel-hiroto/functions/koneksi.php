@@ -1,6 +1,5 @@
 <?php
 
-
 $koneksi = mysqli_connect("localhost", "root", "", "db-hotel-hebat");
 
 if (!$koneksi) {

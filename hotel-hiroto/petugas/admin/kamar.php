@@ -12,9 +12,11 @@
             <thead class="text-center bg-info">
                 <tr>
                     <th class="text-center">No</th>
-                    <th>Nama Kamar</th>
-                    <th>Fasilitas Kamar</th>
-                    <th>Jumlah Kasur</th>
+                    <th>Kamar</th>
+                    <th>Harga</th>
+                    <th>Fasilitas</th>
+                    <th>Ukuran</th>
+                    <th>Kasur</th>
                     <th>Gambar</th>
                     <th>Aksi</th>
                 </tr>
@@ -35,7 +37,9 @@
                     <tr>
                         <td class="text-center"><?= $no++; ?></td>
                         <td><?= $kamar['nama_kamar']; ?></td>
+                        <td><sup>RP</sup><?= $kamar['harga_kamar']; ?></td>
                         <td><?= $kamar['fasilitas_kamar']; ?></td>
+                        <td><?= $kamar['ukuran_kamar']; ?> m<sup>2</sup></td>
                         <td class="text-center"><?= $kamar['jumlah_kasur']; ?></td>
                         <td>
                             <img src="../img/kamar/<?= $kamar['gambar_kamar']; ?>" width="150">
@@ -101,8 +105,16 @@
                                             <input type="text" name="nama_kamar" id="nama_kamar" class="form-control" placeholder="Masukkan Nama Kamar" value="<?= $kamar['nama_kamar']; ?>" required>
                                         </div>
                                         <div class="form-group">
+                                            <label for="harga_kamar">Harga Kamar</label>
+                                            <input type="number" name="harga_kamar" id="harga_kamar" class="form-control" value="<?= $kamar['harga_kamar']; ?>" placeholder="Masukkan Harga Kamar" required>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="fasilitas_kamar">Fasilitas Kamar</label>
                                             <textarea name="fasilitas_kamar" class="form-control" placeholder="Masukkan Fasilitas Kamar" id="fasilitas_kamar" rows="3" required><?= $kamar['fasilitas_kamar']; ?></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ukuran_kamar">Ukuran Kamar</label>
+                                            <input type="number" name="ukuran_kamar" id="ukuran_kamar" class="form-control" value="<?= $kamar['ukuran_kamar']; ?>" placeholder="Masukkan Ukuran Kamar" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="jumlah_kasur">Jumlah Kasur</label>
@@ -136,10 +148,12 @@
 </tbody>
 <tfoot class="text-center">
     <tr>
-        <th>No</th>
-        <th>Nama Kamar</th>
-        <th>Fasilitas Kamar</th>
-        <th>Jumlah Kasur</th>
+        <th class="text-center">No</th>
+        <th>Kamar</th>
+        <th>Harga</th>
+        <th>Fasilitas</th>
+        <th>Ukuran</th>
+        <th>Kasur</th>
         <th>Gambar</th>
         <th>Aksi</th>
     </tr>
@@ -166,8 +180,16 @@
                         <input type="text" name="nama_kamar" id="nama_kamar" class="form-control" placeholder="Masukkan Nama Kamar" required>
                     </div>
                     <div class="form-group">
+                        <label for="harga_kamar">Harga Kamar</label>
+                        <input type="number" name="harga_kamar" id="harga_kamar" class="form-control" placeholder="Masukkan Harga Kamar" required>
+                    </div>
+                    <div class="form-group">
                         <label for="fasilitas_kamar">Fasilitas Kamar</label>
                         <textarea name="fasilitas_kamar" class="form-control" placeholder="Masukkan Fasilitas Kamar" id="fasilitas_kamar" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="ukuran_kamar">Ukuran Kamar</label>
+                        <input type="number" name="ukuran_kamar" id="ukuran_kamar" class="form-control" placeholder="Masukkan Ukuran Kamar" required>
                     </div>
                     <div class="form-group">
                         <label for="jumlah_kasur">Jumlah Kasur</label>

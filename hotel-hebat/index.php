@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="bahan/Logo.png">
+    <link rel="shortcut icon" type="image/x-icon" href="bahan/logo.png">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="template1/css/animate.css">
     <link rel="stylesheet" href="template1/css/slicknav.css">
     <link rel="stylesheet" href="template1/css/style.css">
-    <!-- <link rel="stylesheet" href="template1/css/responsive.css"> -->
+    <link rel="stylesheet" href="template1/css/responsive.css">
 </head>
 
 <body>
@@ -41,18 +41,22 @@
                         <div class="col-xl-5 col-lg-6">
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
+
+                                    <!-- AWAL MENU -->
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.php">home</a></li>
-                                        <li><a href="kamar.php">kamar</a></li>
-                                        <li><a href="fasilitas.php">fasilitas</a></li>
-                                        <li><a href="login.php">login</a></li>
+                                        <li><a class="active" href="index.php">Home</a></li>
+                                        <li><a href="kamar.php">Kamar</a></li>
+                                        <li><a href="fasilitas.php">Fasilitas</a></li>
+                                        <li><a href="login.php">Login</a></li>
                                     </ul>
+                                    <!-- AKHIR MENU -->
+
                                 </nav>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <img src="bahan/logo.png" alt="">
                                 </a>
                             </div>
@@ -60,7 +64,10 @@
                         <div class="col-xl-5 col-lg-4 d-none d-lg-block">
                             <div class="book_room">
                                 <div class="book_btn d-none d-lg-block">
+
+                                    <!-- PANGGIL FORM PESAN KAMAR SAAT DI KLIK -->
                                     <a class="popup-with-form" href="#test-form">Pesan Kamar</a>
+
                                 </div>
                             </div>
                         </div>
@@ -83,7 +90,7 @@
                         <div class="col-xl-12">
                             <div class="slider_text text-center">
                                 <h3>Hotel Hebat</h3>
-                                <p>Unlock to enjoy the view of Martine</p>
+                                <p>Nikmati pemandangan yang indah</p>
                             </div>
                         </div>
                     </div>
@@ -94,14 +101,13 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text text-center">
-                                <h3>UKK RPL 2023</h3>
-                                <p>Unlock to enjoy the view of Martine</p>
+                                <h3>Hotel Hebat</h3>
+                                <p>Enjoy the beautiful view</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <!-- slider_area_end -->
@@ -113,22 +119,20 @@
                 <div class="col-xl-5 col-lg-5">
                     <div class="about_info">
                         <div class="section_title mb-20px">
-                            <span>Home</span>
-                            <h3>Hotel Hebat</h3>
+                            <h3>Tentang Kami</h3>
                         </div>
                         <p>Lepaskan diri anda ke Hotel Hebat, dikelilingi oleh keindahan pegunungan yang indah dan pantai yang cantik. Nikmati sore yang hangat dan berenang di kolam renang dengan pemandangan matahari terbenam yang memukau.
                             Kids Club yang luas menawarkan beragam fasilitas dan kegiatan anak-anak yang akan melengkapi kenyamanan keluarga. Convention Center kami, dilengkapi pelayanan lengkap dan ruang konvensi terbesar di Lampung, mampu mengakomodasi hingga 3.000 delegasi.
                             Manfaatkan ruang penyelenggaraan konvensi M.I.C.E ataupun wujudkan acara pernikahan adat yang mewah.</p>
-                        <a href="#" class="line-button">Learn More</a>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-7">
                     <div class="about_thumb d-flex">
                         <div class="img_1">
-                            <img src="bahan/dashboard1.jpg" alt="">
+                            <img src="template1/img/about/about_1.png" alt="">
                         </div>
                         <div class="img_2">
-                            <img src="bahan/dashboard2.jpg" alt="">
+                            <img src="template1/img/about/about_2.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -137,7 +141,7 @@
     </div>
     <!-- about_area_end -->
 
-    <!-- footer -->
+    <!-- AWAL FOOTER -->
     <footer class="footer">
         <div class="copy-right_text">
             <div class="container">
@@ -148,72 +152,72 @@
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;<script>
                                 document.write(new Date().getFullYear());
-                            </script> SMK Swadhipa 2 Natar | Rekayasa Perangkat Lunak <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://linktr.ee/rzkyfhrzi21" target="_blank">Rizky Fahrezi</a>
+                            </script> SMK Swadhipa 2 Natar | Rekayasa Perangkat Lunak <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.instagram.com/class.rplinvinicible/" target="_blank">XII RPL</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </div>
-                    <div class="col-xl-4 col-md-5 col-lg-3">
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- AKHIR FOOTER -->
 
-    <!-- link that opens popup -->
 
-    <!-- form itself end-->
-    <form action="functions/pesan_kamar.php" method="POST" id="test-form" class="white-popup-block mfp-hide" autocomplete="off">
+    <!-- AWAL FORM PEMESANAN KAMAR -->
+    <form id="test-form" class="white-popup-block mfp-hide" action="simpan.php" method="post">
         <div class="popup_box ">
             <div class="popup_inner">
                 <h3>Pesan Kamar</h3>
-                <form>
-                    <div class="row">
-                        <div class="form-group col-xl-12">
-                            <input type="text" class="form-control" name="nama_pemesan" placeholder="Nama Pemesan" required>
-                        </div>
-                        <div class="form-group col-xl-12">
-                            <input type="number" class="form-control" name="no_hp" placeholder="No Handphone" required>
-                        </div>
-                        <div class="form-group col-xl-12">
-                            <input type="email" class="form-control" name="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group col-xl-12">
-                            <input type="text" class="form-control" name="nama_tamu" placeholder="Nama Tamu" required>
-                        </div>
-                        <div class="col-xl-6">
-                            <input id="datepicker" name="check_in" placeholder="Tanggal Check In">
-                        </div>
-                        <div class="col-xl-6">
-                            <input id="datepicker2" name="check_out" placeholder="Tanggal Check Out">
-                        </div>
-
-                        <div class="col-xl-12">
-                            <select class="form-select wide" id="default-select" name="tipe_kamar">
-                                <option data-display="Tipe Kamar"></option>
-                                <?php
-
-                                include 'functions/koneksi.php';
-
-                                $sql_kamar = mysqli_query($koneksi, "SELECT * from kamar");
-
-                                while ($kamar = mysqli_fetch_array($sql_kamar)) :
-
-                                ?>
-                                    <option value="<?= $kamar['nama_kamar']; ?>"><?= $kamar['nama_kamar']; ?></option>
-                                <?php endwhile ?>
-                            </select>
-                        </div>
-                        <div class="form-group col-xl-12">
-                            <input type="number" class="form-control" name="jumlah_kamar" placeholder="Jumlah Kamar" required>
-                        </div>
-                        <div class="col-xl-12">
-                            <button type="submit" name="pesan_kamar" class="boxed-btn3">Pesan Kamar</button>
-                        </div>
+                <div class="row">
+                    <div class="form-group col-xl-12">
+                        <input type="text" class="form-control" name="nama_pemesan" autocomplete="off" placeholder="Masukkkan Nama Pemesan" required>
                     </div>
-                </form>
+                    <div class="form-group col-xl-12">
+                        <input type="phone_num" class="form-control" name="no_hp" autocomplete="off" placeholder="Masukkkan No HP" required>
+                    </div>
+                    <div class="form-group col-xl-12">
+                        <input type="email" class="form-control" name="email" autocomplete="off" placeholder="Masukkkan Email" required>
+                    </div>
+                    <div class="form-group col-xl-12">
+                        <input type="text" class="form-control" name="nama_tamu" autocomplete="off" placeholder="Masukkan Nama Tamu" required>
+                    </div>
+                    <div class="col-xl-6">
+                        <input id="datepicker" name="check_in" autocomplete="off" placeholder="Tanggal Check In" required>
+                    </div>
+                    <div class="col-xl-6">
+                        <input id="datepicker2" name="check_out" autocomplete="off" placeholder="Tanggal Check Out" required>
+                    </div>
+                    <div class="form-group col-xl-12">
+                        <input type="number" class="form-control" autocomplete="off" name="jumlah_kamar" placeholder="Masukkkan Jumlah Kamar" required>
+                    </div>
+                    <div class="col-xl-12">
+                        <select class="form-select wide" name="tipe_kamar" id="default-select" class="" required>
+                            <option data-display="Tipe Kamar"></option>
+
+                            <!-- BUAT PERULANGAN UNTUK TIPE KAMAR BERDASARKAN NAMA KAMAR DARI DATABASE -->
+                            <?php
+
+                            include 'koneksi.php';
+
+                            $sql_kamar = mysqli_query($koneksi, "SELECT * from kamar");
+
+                            while ($kamar = mysqli_fetch_array($sql_kamar)) {
+
+                            ?>
+                                <option value="<?= $kamar['nama_kamar']; ?>"><?= $kamar['nama_kamar']; ?></option>
+
+                            <?php } ?>
+                            <!-- AKHIR PERULANGAN TIPE KAMAR -->
+
+                        </select>
+                    </div>
+                    <div class="col-xl-12">
+                        <button type="submit" class="boxed-btn3">Pesan Kamar</button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
-    <!-- form itself end -->
+    <!-- AKHIR FORM PEMESANAN KAMAR -->
 
     <!-- JS here -->
     <script src="template1/js/vendor/modernizr-3.5.0.min.js"></script>
@@ -258,9 +262,6 @@
 
         });
     </script>
-
-
-
 </body>
 
 </html>
