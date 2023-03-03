@@ -1,3 +1,19 @@
+<?php
+
+
+if (@$_GET['check_in'] > 0 or @$_GET['check_out'] > 0  or @$_GET['tipe_kamar'] > 0  or @$_GET['jumlah_kamar'] > 0) {
+    $check_in       = $_GET['check_in'];
+    $check_out      = $_GET['check_out'];
+    $tipe_kamar     = $_GET['tipe_kamar'];
+    $jumlah_kamar   = $_GET['jumlah_kamar'];
+}
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -167,8 +183,8 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Room Booking</h6>
-                    <h1 class="mb-5">Book A <span class="text-primary text-uppercase">Luxury Room</span></h1>
+                    <h6 class="section-title text-center text-primary text-uppercase">PESAN KAMAR</h6>
+                    <h1 class="mb-5">Booking <span class="text-primary text-uppercase">Kamar Terbaik</span></h1>
                 </div>
                 <div class="row g-5">
                     <div class="col-lg-6">
@@ -180,79 +196,80 @@
                                 <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="template1/img/about-2.jpg">
                             </div>
                             <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="template1/img/about-3.jpg">
+                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="../bahan/dashboard1.jpg">
                             </div>
                             <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="template1/img/about-4.jpg">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="../bahan/dashboard2.jpg">
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            <form>
+                            <form action="functions/pesan_kamar.php" method="post" autocomplete="off">
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                            <label for="name">Your Name</label>
+                                            <input type="text" name="nama_pemesan" class="form-control" id="name" placeholder="Nama Anda" required>
+                                            <label for="nama_pemesan">Nama Anda</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                            <label for="email">Your Email</label>
+                                            <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
+                                            <label for="email">Email Anda</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating date" id="date3" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" id="checkin" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" />
-                                            <label for="checkin">Check In</label>
+                                            <input type="text" name="check_in" class="form-control datetimepicker-input" id="check_in" placeholder="Tanggal Check In" data-target="#date3" data-toggle="datetimepicker" value="<?= @$check_in; ?>" required />
+                                            <label for="check_in">Tanggal Check In</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating date" id="date4" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" id="checkout" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" />
-                                            <label for="checkout">Check Out</label>
+                                            <input type="text" name="check_out" class="form-control datetimepicker-input" id="check_out" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" value="<?= @$check_in; ?>" required />
+                                            <label for="check_out">Tanggal Check Out</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <select class="form-select" id="select1">
-                                                <option value="1">Adult 1</option>
-                                                <option value="2">Adult 2</option>
-                                                <option value="3">Adult 3</option>
-                                            </select>
-                                            <label for="select1">Select Adult</label>
+                                            <input type="number" name="no_hp" class="form-control" id="no_hp" placeholder="Nomor Handphone" required>
+                                            <label for="no_hp">Nomor Handphone</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <select class="form-select" id="select2">
-                                                <option value="1">Child 1</option>
-                                                <option value="2">Child 2</option>
-                                                <option value="3">Child 3</option>
-                                            </select>
-                                            <label for="select2">Select Child</label>
+                                            <input type="number" name="jumlah_kamar" class="form-control" id="jumlah_kamar" value="<?= @$jumlah_kamar; ?>" placeholder="Jumlah Kamar" required>
+                                            <label for="jumlah_kamar">Jumlah Kamar</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <select class="form-select" id="select3">
-                                                <option value="1">Room 1</option>
-                                                <option value="2">Room 2</option>
-                                                <option value="3">Room 3</option>
+                                            <select class="form-select" name="tipe_kamar" id="tipe_kamar" required>
+                                                <option value="<?= @$tipe_kamar; ?>"><?= @$tipe_kamar; ?></option>
+                                                <?php
+
+                                                include 'functions/koneksi.php';
+
+                                                $sql_kamar = mysqli_query($koneksi, "SELECT * from kamar");
+
+                                                while ($kamar = mysqli_fetch_array($sql_kamar)) :
+
+                                                ?>
+                                                    <option value="<?= $kamar['nama_kamar']; ?>"><?= $kamar['nama_kamar']; ?></option>
+                                                <?php endwhile ?>
                                             </select>
-                                            <label for="select3">Select A Room</label>
+                                            <label for="tipe_kamar">Tipe Kamar</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                            <label for="message">Special Request</label>
+                                            <textarea name="permintaan_khusus" class="form-control" placeholder="Permintaan Khusus" id="permintaan_khusus" style="height: 100px"></textarea>
+                                            <label for="permintaan_khusus">Permintaan Khusus</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                                        <button class="btn btn-primary w-100 py-3" name="pesan_kamar" type="submit">PESAN SEKARANG</button>
                                     </div>
                                 </div>
                             </form>

@@ -1,3 +1,13 @@
+<?php
+
+if (isset($_GET['kirim'])) {
+
+    $username = $_GET['username'];
+    $password = $_GET['password'];
+    header('location: tes2.php?username=' . $username . '&password=' . $password);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +30,7 @@
                 <input type="password" name="password" id="password" placeholder="Password" required>
             </li>
             <li>
-                <button type="submit">YA</button>
+                <button name="kirim" type="submit">YA</button>
             </li>
         </ul>
 
