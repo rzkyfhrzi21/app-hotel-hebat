@@ -2,15 +2,11 @@
 
 
 if (@$_GET['check_in'] > 0 or @$_GET['check_out'] > 0  or @$_GET['tipe_kamar'] > 0  or @$_GET['jumlah_kamar'] > 0) {
-    $check_in       = $_GET['check_in'];
-    $check_out      = $_GET['check_out'];
-    $tipe_kamar     = $_GET['tipe_kamar'];
-    $jumlah_kamar   = $_GET['jumlah_kamar'];
+    $check_in       = @$_GET['check_in'];
+    $check_out      = @$_GET['check_out'];
+    $tipe_kamar     = @$_GET['tipe_kamar'];
+    $jumlah_kamar   = @$_GET['jumlah_kamar'];
 }
-
-
-
-
 
 ?>
 

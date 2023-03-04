@@ -9,6 +9,10 @@ if (isset($_GET['booking_kamar'])) {
     $jumlah_kamar   = $_GET['jumlah_kamar'];
 
     header('Location: ../booking.php?tipe_kamar=' . $tipe_kamar . '&check_in=' . $check_in . '&check_out=' . $check_out . '&jumlah_kamar=' . $jumlah_kamar);
+}
 
-    // header('Location: ../booking.php');
+if (isset($_GET['book_now'])) {
+    $nama_kamar     = $_GET['nama_kamar'];
+
+    header('Location: ../booking.php?tipe_kamar=' . $nama_kamar);
 }
