@@ -1,30 +1,41 @@
-<?php
+<?php 
 
 session_start();
 
 include 'koneksi.php';
 
 if (isset($_POST['login'])) {
-    $username = mysqli_real_escape_string($koneksi, $_POST['username']);
-    $password = md5(mysqli_real_escape_string($koneksi, $_POST['password']));
+	$username = $_POST['username'];
+	$password = md5($_POST['password']);
 
-    $sql_petugas    = mysqli_query($koneksi, "SELECT * from petugas where username = '$username' and password = '$password'");
-    $row_petugas    = mysqli_num_rows($sql_petugas);
-    $petugas        = mysqli_fetch_array($sql_petugas);
+	$sql_login = mysqli_query($koneksi, "SELECT * from petugas where username = '$username' and password = '$password'");
+	$jumlah_petugas = mysqli_num_rows($sql_login);
+	$data_petugas	= mysqli_fetch_array($sql_login);
 
-    if ($row_petugas > 0) {
-        $_SESSION['nama']       = $petugas['nama_petugas'];
-        $_SESSION['level']      = $petugas['level'];
-        $_SESSION['username']   = $petugas['username'];
+	if ($jumlah_petugas > 0) {
+		$_SESSION['nama_petugas'] 	= $data_petugas['nama_petugas'];
+		$_SESSION['level'] 			= $data_petugas['level'];
+		$_SESSION['id_petugas'] 	= $data_petugas['id_petugas'];
 
-        if ($_SESSION['level'] == 'admin') {
-            header('location: ../petugas/admin.php');
-        } else if ($_SESSION['level'] == 'resepsionis') {
-            header('location: ../petugas/resepsionis.php');
-        } else {
-            header('location: ../login.php? Maaf level petugas tidak diketahui!');
-        }
-    } else {
-        header('location: ../login.php? Maaf akun tidak ditemukan!');
-    }
+		if ($data_petugas['level'] == 'admin') {
+			header('Location: ../petugas/admin.php');
+		} else if ($data_petugas['level'] == 'resepsionis') {
+			header('Location: ../petugas/resepsionis.php');
+		} else {
+			echo "<script>
+				alert('Level petugas tidak diketahui!');
+				location.replace('../auth/login.php');
+			</script>";
+		}
+
+	} else {
+		echo "<script>
+				alert('Petugas tidak ditemukan!');
+				location.replace('../auth/login.php');
+			</script>";
+	}
 }
+
+
+
+ ?>
